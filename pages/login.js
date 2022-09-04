@@ -44,6 +44,10 @@ function Login() {
             <div className="card border-0 rounded shadow-sm">
               <div className="card-body">
                 <h5 className="fw-bold">Login</h5>
+                <hr />
+                {validation.message && (
+                  <div className="alert alert-danger">{validation.message}</div>
+                )}
                 <form onSubmit={handleLogin}>
                   <div className="mb-3">
                     <label className="col-form-label">Email Address</label>
