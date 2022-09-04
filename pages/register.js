@@ -1,7 +1,8 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import Head from 'next/head';
 import Router from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Layout from '../layouts/Layout';
 
 function Register() {
@@ -30,6 +31,12 @@ function Register() {
         setValidation(error.response.data);
       });
   };
+
+  useEffect(() => {
+    if (Cookies.get('token')) {
+      Router.push('/dashboard');
+    }
+  }, []);
 
   return (
     <Layout>
